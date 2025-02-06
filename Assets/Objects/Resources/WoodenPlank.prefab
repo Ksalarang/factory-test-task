@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4165293038061448316}
   - component: {fileID: 8192397646465152087}
   - component: {fileID: 5869818837841290236}
+  - component: {fileID: 5546249069081436491}
   m_Layer: 0
   m_Name: WoodenPlank
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8379120023279395645}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41893947, y: 0.7735997, z: -0.153}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.044613, z: 0.27451}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105,3 +106,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5546249069081436491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8379120023279395645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532986ffa9794064950ebbefb03e4c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
