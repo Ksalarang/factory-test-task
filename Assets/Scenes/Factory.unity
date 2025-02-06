@@ -1304,6 +1304,8 @@ MonoBehaviour:
   - {fileID: 236745268}
   - {fileID: 8983587146572279043}
   - {fileID: 1997143212}
+  _transportBeltConfig: {fileID: 11400000, guid: 926a28b0b59f6594da4ce56900eea5af,
+    type: 2}
 --- !u!4 &1335177787
 Transform:
   m_ObjectHideFlags: 0

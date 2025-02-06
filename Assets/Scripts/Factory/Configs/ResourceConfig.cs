@@ -2,7 +2,7 @@
 
 namespace Factory.Configs
 {
-    [CreateAssetMenu(fileName = "ResourceConfig", menuName = "Configs/Fabricator/ResourceConfig", order = 0)]
+    [CreateAssetMenu(fileName = "ResourceConfig", menuName = "Configs/ResourceConfig", order = 0)]
     public class ResourceConfig : ScriptableObject
     {
         [field: SerializeField]

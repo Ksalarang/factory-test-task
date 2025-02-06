@@ -5,15 +5,18 @@ namespace Factory.Fabricators
     public class FabricatorController
     {
         private readonly List<Fabricator> _fabricators;
+        private readonly TransportBelt _transportBelt;
 
-        public FabricatorController(List<Fabricator> fabricators)
+        public FabricatorController(List<Fabricator> fabricators, TransportBelt transportBelt)
         {
             _fabricators = fabricators;
+            _transportBelt = transportBelt;
         }
 
         public void Start()
         {
-            _fabricators[0].FabricateResource();
+            var resource = _fabricators[0].FabricateResource();
+            _transportBelt.PlaceResourceAt(resource, 0);
         }
     }
 }
