@@ -17,4 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cfa6ed0d856055c45965b7d337c25cc4, type: 2}
   - {fileID: 11400000, guid: c35e2f8b28ca8c748ad4fab68d4d79e7, type: 2}
   <MoveSpeed>k__BackingField: 1
-  <DisappearanceDelay>k__BackingField: 2
+  <DisappearanceDelay>k__BackingField: 1.5
+  <CollisionDelay>k__BackingField: 1.5

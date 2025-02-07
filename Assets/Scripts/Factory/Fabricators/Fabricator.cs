@@ -10,9 +10,13 @@ namespace Factory.Fabricators
         [SerializeField]
         private Transform _resourcesParent;
 
+        private int _resourceIndex;
+
         public Resource FabricateResource()
         {
-            return Instantiate(_resourcePrefab, _resourcesParent).GetComponent<Resource>();
+            var resource = Instantiate(_resourcePrefab, _resourcesParent).GetComponent<Resource>();
+            resource.name = $"{resource.name} {_resourceIndex++}";
+            return resource;
         }
     }
 }

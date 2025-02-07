@@ -13,5 +13,8 @@ namespace Factory.Configs
 
         [field: SerializeField]
         public float DisappearanceDelay { get; private set; }
+
+        [field: SerializeField]
+        public float CollisionDelay { get; private set; }
     }
 }

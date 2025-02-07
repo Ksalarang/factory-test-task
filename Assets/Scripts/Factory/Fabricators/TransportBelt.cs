@@ -55,22 +55,22 @@ namespace Factory.Fabricators
 
             await UniTask.Delay(TimeSpan.FromSeconds(_config.DisappearanceDelay), cancellationToken: token);
 
+            // moving the resource one more time before destroying for OnTriggerExit to be called on other resources.
+            var position = resource.transform.position;
+            position.y = -1;
+            await resource.transform.DOMove(position, 0.1f).SetEase(Ease.Linear).WithCancellation(token);
+
             resource.OnResourceCollision -= OnResourceCollision;
             Object.Destroy(resource.gameObject);
         }
 
         private void OnResourceCollision(Resource resource1, Resource resource2)
         {
-            if (resource1.MovementPaused || resource2.MovementPaused)
-            {
-                return;
-            }
-
             var endPoint = _config.PathConfigs[0].PathPoints[3];
             var resource = Vector3.Distance(resource1.transform.position, endPoint) >
                 Vector3.Distance(resource2.transform.position, endPoint) ? resource1 : resource2;
 
-            resource.PauseMovementAsync(_tokenSource.Token).Forget();
+            resource.PauseMovementAsync(_config.CollisionDelay, endPoint, _tokenSource.Token).Forget();
         }
     }
 }
