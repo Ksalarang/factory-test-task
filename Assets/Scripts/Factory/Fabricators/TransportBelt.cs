@@ -43,7 +43,9 @@ namespace Factory.Fabricators
                 }
 
                 var point1 = points[i];
+                point1.y += resource.YOffset;
                 var point2 = points[i + 1];
+                point2.y += resource.YOffset;
                 resource.transform.position = point1;
                 var duration = Vector3.Distance(point1, point2) / _config.MoveSpeed;
 
