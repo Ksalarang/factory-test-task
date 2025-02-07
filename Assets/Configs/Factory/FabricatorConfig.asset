@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa741e02a7fe4c92b321129e03f17d71, type: 3}
   m_Name: FabricatorConfig
   m_EditorClassIdentifier: 
-  <FabricationInterval>k__BackingField: 2
+  <FabricationInterval>k__BackingField: 3

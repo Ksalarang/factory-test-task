@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Factory.Configs;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Factory.Fabricators
 {
@@ -51,6 +52,11 @@ namespace Factory.Fabricators
 
                 await resource.transform.DOMove(point2, duration).SetEase(Ease.Linear).WithCancellation(token);
             }
+
+            await UniTask.Delay(TimeSpan.FromSeconds(_config.DisappearanceDelay), cancellationToken: token);
+
+            resource.OnResourceCollision -= OnResourceCollision;
+            Object.Destroy(resource.gameObject);
         }
 
         private void OnResourceCollision(Resource resource1, Resource resource2)

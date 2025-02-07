@@ -10,5 +10,8 @@ namespace Factory.Configs
 
         [field: SerializeField]
         public float MoveSpeed { get; private set; }
+
+        [field: SerializeField]
+        public float DisappearanceDelay { get; private set; }
     }
 }
