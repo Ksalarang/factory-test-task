@@ -33,7 +33,7 @@ namespace Factory.Fabricators
 
         private async UniTask MoveResourceAsync(Resource resource, Vector3[] points, CancellationToken token)
         {
-            for (var i = 0; i < points.Length; i++)
+            for (var i = 0; i < points.Length && token.IsCancellationRequested == false; i++)
             {
                 if (i + 1 == points.Length)
                 {

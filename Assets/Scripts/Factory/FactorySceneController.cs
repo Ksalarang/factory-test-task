@@ -15,19 +15,25 @@ namespace Factory
         [SerializeField]
         private TransportBeltConfig _transportBeltConfig;
 
+        [SerializeField]
+        private FabricatorConfig _fabricatorConfig;
+
         private TransportBelt _transportBelt;
+        private FabricatorController _fabricatorController;
 
         private void Start()
         {
             _transportBelt = new TransportBelt(_transportBeltConfig);
-            var fabricatorController = new FabricatorController(_fabricators.ToList(), _transportBelt);
+            _fabricatorController = new FabricatorController(_fabricators.ToList(), _transportBelt,
+                _fabricatorConfig);
 
-            fabricatorController.Start();
+            _fabricatorController.Start();
         }
 
         private void OnDestroy()
         {
             _transportBelt.Dispose();
+            _fabricatorController.Dispose();
         }
     }
 }
