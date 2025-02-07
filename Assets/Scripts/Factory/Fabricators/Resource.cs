@@ -20,11 +20,6 @@ namespace Factory.Fabricators
             }
         }
 
-        private void OnDestroy()
-        {
-            OnResourceCollision = null;
-        }
-
         public async UniTask PauseMovementAsync(CancellationToken token)
         {
             transform.DOPause();

@@ -3,7 +3,6 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Factory.Configs;
-using Factory.Utils;
 using UnityEngine;
 
 namespace Factory.Fabricators
