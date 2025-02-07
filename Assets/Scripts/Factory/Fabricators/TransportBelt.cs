@@ -3,6 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Factory.Configs;
+using Factory.Utils;
 using UnityEngine;
 
 namespace Factory.Fabricators
@@ -17,6 +18,12 @@ namespace Factory.Fabricators
             _config = config;
         }
 
+        public void Dispose()
+        {
+            _tokenSource.Cancel();
+            _tokenSource.Dispose();
+        }
+
         public void PlaceResourceAt(Resource resource, int pathIndex)
         {
             var pathConfig = _config.PathConfigs[pathIndex];
@@ -25,14 +32,10 @@ namespace Factory.Fabricators
             MoveResourceAsync(resource, points, _tokenSource.Token).Forget();
         }
 
-        public void Dispose()
-        {
-            _tokenSource.Cancel();
-            _tokenSource.Dispose();
-        }
-
         private async UniTask MoveResourceAsync(Resource resource, Vector3[] points, CancellationToken token)
         {
+            resource.OnResourceCollision += OnResourceCollision;
+
             for (var i = 0; i < points.Length && token.IsCancellationRequested == false; i++)
             {
                 if (i + 1 == points.Length)
@@ -47,6 +50,20 @@ namespace Factory.Fabricators
 
                 await resource.transform.DOMove(point2, duration).SetEase(Ease.Linear).WithCancellation(token);
             }
+        }
+
+        private void OnResourceCollision(Resource resource1, Resource resource2)
+        {
+            if (resource1.MovementPaused || resource2.MovementPaused)
+            {
+                return;
+            }
+
+            var endPoint = _config.PathConfigs[0].PathPoints[3];
+            var resource = Vector3.Distance(resource1.transform.position, endPoint) >
+                Vector3.Distance(resource2.transform.position, endPoint) ? resource1 : resource2;
+
+            resource.PauseMovementAsync(_tokenSource.Token).Forget();
         }
     }
 }
