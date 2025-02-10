@@ -36,14 +36,14 @@ namespace Factory.ResourcePickUp
             var newPosition = CalculateResourcePosition(resource, area);
             var duration = 0.5f;
 
-            area.Resources.Add(resource);
-
             var rotation = resource.transform.eulerAngles;
             rotation.y -= 90;
             var newRotation = rotation + area.transform.eulerAngles;
             resource.transform.DORotate(newRotation, duration).WithCancellation(token).Forget();
 
             await resource.transform.DOMove(newPosition, duration).WithCancellation(token);
+
+            area.Resources.Add(resource);
         }
 
         private Vector3 CalculateResourcePosition(Resource resource, PickUpArea area)
