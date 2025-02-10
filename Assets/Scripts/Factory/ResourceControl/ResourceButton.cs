@@ -2,14 +2,18 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Factory.Fabricators;
 using Factory.Utils;
 using UnityEngine;
 
-namespace Factory.ResourceControls
+namespace Factory.ResourceControl
 {
     public class ResourceButton : MonoBehaviour
     {
-        public event Action Pressed;
+        public event Action<ResourceButton> Pressed;
+
+        [field: SerializeField]
+        public ResourceType Type { get; private set; }
 
         [SerializeField]
         private Transform _button;
@@ -52,9 +56,11 @@ namespace Factory.ResourceControls
             var duration = _pressDuration / 2f;
 
             await _button.DOLocalMoveY(y + _pressOffset, duration).WithCancellation(token);
+
+            Pressed?.Invoke(this);
+
             await _button.DOLocalMoveY(y, duration).WithCancellation(token);
 
-            Pressed?.Invoke();
             _pressing = false;
         }
     }

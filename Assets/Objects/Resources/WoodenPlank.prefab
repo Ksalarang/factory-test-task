@@ -146,4 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532986ffa9794064950ebbefb03e4c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Type>k__BackingField: 2
   <YOffset>k__BackingField: 0.0025
