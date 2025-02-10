@@ -11,6 +11,9 @@ namespace Factory.Carriers
     public class Carrier : MonoBehaviour
     {
         [SerializeField]
+        private Rigidbody _rigidbody;
+
+        [SerializeField]
         private PickUpArea[] _pickUpAreas;
 
         [SerializeField]
@@ -33,6 +36,9 @@ namespace Factory.Carriers
 
         [SerializeField]
         private Vector3 _resourceLocalPosition;
+
+        [SerializeField]
+        private float _turnDuration;
 
         private void Start()
         {
@@ -101,8 +107,11 @@ namespace Factory.Carriers
             var position = transform.position;
             var destination = targetPosition - (position - targetPosition).normalized * offset;
             destination.y = position.y;
+            var angleY = Mathf.Atan2(destination.x - position.x, destination.z - position.z) * Mathf.Rad2Deg;
             var duration = Vector3.Distance(position, destination) / _moveSpeed;
-            await transform.DOMove(destination, duration).SetEase(ease).WithCancellation(token);
+
+            _rigidbody.DORotate(new Vector3(0, angleY, 0), _turnDuration).WithCancellation(token).Forget();
+            await _rigidbody.DOMove(destination, duration).SetEase(ease).WithCancellation(token);
         }
     }
 }
