@@ -16,6 +16,9 @@ namespace Factory
         [SerializeField]
         private ResourceButton[] _resourceButtons;
 
+        [SerializeField]
+        private PickUpArea[] _pickUpAreas;
+
         [Header("Configs")]
         [SerializeField]
         private TransportBeltConfig _transportBeltConfig;
@@ -26,15 +29,15 @@ namespace Factory
         private TransportBelt _transportBelt;
         private FabricatorController _fabricatorController;
         private ResourcePanelController _resourcePanelController;
-        private ResourcePickUpArea _pickUpArea;
+        private ResourcePickUpHandler _pickUpHandler;
 
         private void Start()
         {
             _transportBelt = new TransportBelt(_transportBeltConfig);
             _fabricatorController = new FabricatorController(_fabricators.ToList(), _transportBelt, _fabricatorConfig);
-            _pickUpArea = new ResourcePickUpArea();
+            _pickUpHandler = new ResourcePickUpHandler(_pickUpAreas.ToList());
             _resourcePanelController = new ResourcePanelController(_resourceButtons.ToList(), _transportBelt,
-                _pickUpArea);
+                _pickUpHandler);
 
             _fabricatorController.Start();
         }
@@ -44,6 +47,7 @@ namespace Factory
             _transportBelt.Dispose();
             _fabricatorController.Dispose();
             _resourcePanelController.Dispose();
+            _pickUpHandler.Dispose();
         }
     }
 }

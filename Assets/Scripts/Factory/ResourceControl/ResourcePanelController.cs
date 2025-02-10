@@ -9,14 +9,14 @@ namespace Factory.ResourceControl
     {
         private readonly List<ResourceButton> _buttons;
         private readonly ITransportBelt _transportBelt;
-        private readonly IResourcePickUpArea _pickUpArea;
+        private readonly IResourcePickUpHandler _pickUpHandler;
 
         public ResourcePanelController(List<ResourceButton> buttons, ITransportBelt transportBelt,
-            IResourcePickUpArea pickUpArea)
+            IResourcePickUpHandler pickUpHandler)
         {
             _buttons = buttons;
             _transportBelt = transportBelt;
-            _pickUpArea = pickUpArea;
+            _pickUpHandler = pickUpHandler;
 
             foreach (var button in buttons)
             {
@@ -44,7 +44,7 @@ namespace Factory.ResourceControl
             if (currentResource.Type == button.Type)
             {
                 _transportBelt.RemoveCurrentResource();
-                _pickUpArea.PlaceResource(currentResource);
+                _pickUpHandler.PlaceResource(currentResource);
             }
             else
             {

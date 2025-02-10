@@ -2,7 +2,7 @@
 
 namespace Factory.ResourcePickUp
 {
-    public interface IResourcePickUpArea
+    public interface IResourcePickUpHandler
     {
         void PlaceResource(Resource resource);
     }

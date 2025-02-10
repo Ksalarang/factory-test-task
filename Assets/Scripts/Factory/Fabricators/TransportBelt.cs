@@ -40,7 +40,7 @@ namespace Factory.Fabricators
         public void RemoveCurrentResource()
         {
             CancelCurrentResourceToken();
-
+            CurrentResource.OnResourceCollision -= OnResourceCollision;
             CurrentResource = null;
         }
 
