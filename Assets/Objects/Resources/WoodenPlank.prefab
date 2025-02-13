@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5869818837841290236}
   - component: {fileID: 1611148731981121555}
   - component: {fileID: 5546249069081436491}
+  - component: {fileID: 4377105688264550424}
   m_Layer: 0
   m_Name: WoodenPlank
   m_TagString: Untagged
@@ -147,4 +148,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 2
+  <Movement>k__BackingField: {fileID: 4377105688264550424}
   <YOffset>k__BackingField: 0.0025
+--- !u!114 &4377105688264550424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8379120023279395645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8a68a1148a479e863f5b4b63e7c5d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

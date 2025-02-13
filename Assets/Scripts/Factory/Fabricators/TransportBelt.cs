@@ -40,7 +40,7 @@ namespace Factory.Fabricators
         public void RemoveCurrentResource()
         {
             CancelCurrentResourceToken();
-            CurrentResource.OnResourceCollision -= OnResourceCollision;
+            CurrentResource.Movement.OnResourceCollision -= OnResourceCollision;
             CurrentResource = null;
         }
 
@@ -53,7 +53,7 @@ namespace Factory.Fabricators
 
         private async UniTask MoveResourceAsync(Resource resource, Vector3[] points, CancellationToken token)
         {
-            resource.OnResourceCollision += OnResourceCollision;
+            resource.Movement.OnResourceCollision += OnResourceCollision;
 
             for (var i = 0; i < points.Length && token.IsCancellationRequested == false; i++)
             {
@@ -89,11 +89,11 @@ namespace Factory.Fabricators
             position.y = -1;
             await resource.transform.DOMove(position, 0.1f).SetEase(Ease.Linear).WithCancellation(token);
 
-            resource.OnResourceCollision -= OnResourceCollision;
+            resource.Movement.OnResourceCollision -= OnResourceCollision;
             Object.Destroy(resource.gameObject);
         }
 
-        private void OnResourceCollision(Resource resource1, Resource resource2)
+        private void OnResourceCollision(ResourceMovement resource1, ResourceMovement resource2)
         {
             var endPoint = _config.PathConfigs[0].PathPoints[3];
             var resource = Vector3.Distance(resource1.transform.position, endPoint) >
