@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Factory.Configs;
@@ -11,11 +10,11 @@ namespace Factory.ResourceCreation
     public class FabricatorController : IDisposable
     {
         private readonly ResourcePool _resourcePool;
-        private readonly TransportBelt _transportBelt;
+        private readonly ITransportBelt _transportBelt;
         private readonly FabricatorConfig _config;
         private readonly CancellationTokenSource _tokenSource = new();
 
-        public FabricatorController(ResourcePool resourcePool, TransportBelt transportBelt,
+        public FabricatorController(ResourcePool resourcePool, ITransportBelt transportBelt,
             FabricatorConfig fabricatorConfig)
         {
             _resourcePool = resourcePool;

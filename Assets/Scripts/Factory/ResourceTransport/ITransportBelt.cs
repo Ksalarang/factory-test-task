@@ -6,6 +6,8 @@ namespace Factory.ResourceTransport
     {
         Resource CurrentResource { get; }
 
+        void PlaceResourceAt(Resource resource, int pathIndex);
+
         void RemoveCurrentResource();
 
         void DiscardCurrentResource();
