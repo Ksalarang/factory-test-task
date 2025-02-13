@@ -1,4 +1,5 @@
-﻿using Factory.Utils;
+﻿using System;
+using Factory.Utils;
 using UnityEngine;
 
 namespace Factory.Player
@@ -22,8 +23,27 @@ namespace Factory.Player
 
         private Vector3 _cameraDelta;
 
+        private void Start()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
         private void Update()
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                var ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f));
+
+                if (Physics.Raycast(ray, out var hit))
+                {
+                    if (hit.collider.TryGetComponent(out ClickListener clickListener))
+                    {
+                        clickListener.TriggerClickEvent();
+                    }
+                }
+            }
+
             _cameraDelta.x = Input.GetAxis("Mouse X");
             _cameraDelta.y = Input.GetAxis("Mouse Y");
 

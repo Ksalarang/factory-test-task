@@ -7,7 +7,7 @@ namespace Factory.Utils
     {
         public event Action OnClick;
 
-        private void OnMouseDown()
+        public void TriggerClickEvent()
         {
             OnClick?.Invoke();
         }
