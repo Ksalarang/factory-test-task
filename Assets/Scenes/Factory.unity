@@ -328,23 +328,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fabricator 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-        type: 3}
-      propertyPath: _resourceConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 2ada7ccf45fb1b348af9b00e55ccffba,
-        type: 2}
-    - target: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-        type: 3}
-      propertyPath: _resourcePrefab
-      value: 
-      objectReference: {fileID: 7120278386095060209, guid: 0f8f6f3a8eb0e3f48bf348eceba53d7c,
-        type: 3}
-    - target: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-        type: 3}
-      propertyPath: _resourcesParent
-      value: 
-      objectReference: {fileID: 2087030108}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -356,18 +339,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 236745266}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &236745268 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-    type: 3}
-  m_PrefabInstance: {fileID: 236745266}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 782f9bfc0c8148f6b962ce62dc176dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,7 +2262,7 @@ MonoBehaviour:
   - {fileID: 1489692032}
   - {fileID: 1293721919}
   - {fileID: 1267834104}
-  _moveSpeed: 2
+  _moveSpeed: 5
   _resourceOffset: -0.5
   _containerOffset: -1
   _doorPosition: {x: 2, y: 1, z: 13}
@@ -2541,10 +2512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725cbfea60194f678ffaf4493e9cda02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fabricators:
-  - {fileID: 236745268}
-  - {fileID: 8983587146572279043}
-  - {fileID: 1997143212}
   _resourceButtons:
   - {fileID: 3143955857094049344}
   - {fileID: 747360799}
@@ -2553,9 +2520,17 @@ MonoBehaviour:
   - {fileID: 3268014682702705785}
   - {fileID: 1442046709}
   - {fileID: 414641727}
+  _resourcePrefabs:
+  - {fileID: 3010990700243051491, guid: 0f8f6f3a8eb0e3f48bf348eceba53d7c, type: 3}
+  - {fileID: 2144661019308297628, guid: d68c4c78674b4124db1d407a6812a2f1, type: 3}
+  - {fileID: 5546249069081436491, guid: d53d810e8f5b42a48997ec415bc013ad, type: 3}
+  _resourceParent: {fileID: 2087030108}
+  _carrier: {fileID: 1182867822}
   _transportBeltConfig: {fileID: 11400000, guid: 926a28b0b59f6594da4ce56900eea5af,
     type: 2}
   _fabricatorConfig: {fileID: 11400000, guid: 2fb824c448bd2f34bb10de13295a9c64, type: 2}
+  _resourceConfigBundle: {fileID: 11400000, guid: e10da4c96c0363d40a9cbf46b66c14b2,
+    type: 2}
 --- !u!4 &1335177787
 Transform:
   m_ObjectHideFlags: 0
@@ -3518,23 +3493,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fabricator 3
       objectReference: {fileID: 0}
-    - target: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-        type: 3}
-      propertyPath: _resourceConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 3bfd052fdf0c79944aa030a8b7e2f8bc,
-        type: 2}
-    - target: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-        type: 3}
-      propertyPath: _resourcePrefab
-      value: 
-      objectReference: {fileID: 8379120023279395645, guid: d53d810e8f5b42a48997ec415bc013ad,
-        type: 3}
-    - target: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-        type: 3}
-      propertyPath: _resourcesParent
-      value: 
-      objectReference: {fileID: 2087030108}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3546,18 +3504,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1997143210}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1997143212 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-    type: 3}
-  m_PrefabInstance: {fileID: 1997143210}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 782f9bfc0c8148f6b962ce62dc176dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2065538197
 GameObject:
   m_ObjectHideFlags: 0
@@ -3977,40 +3923,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fabricator 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-        type: 3}
-      propertyPath: _resourceConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 160b943dfdf4ae74ea89b8a672cbec8f,
-        type: 2}
-    - target: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-        type: 3}
-      propertyPath: _resourcePrefab
-      value: 
-      objectReference: {fileID: 629418727022511588, guid: d68c4c78674b4124db1d407a6812a2f1,
-        type: 3}
-    - target: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-        type: 3}
-      propertyPath: _resourcesParent
-      value: 
-      objectReference: {fileID: 2087030108}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eac9fd13a623bc24fb297632dbd79a78, type: 3}
---- !u!114 &8983587146572279043 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5699730322858930881, guid: eac9fd13a623bc24fb297632dbd79a78,
-    type: 3}
-  m_PrefabInstance: {fileID: 8983587146572279042}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 782f9bfc0c8148f6b962ce62dc176dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

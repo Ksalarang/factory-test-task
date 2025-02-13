@@ -10,15 +10,15 @@ namespace Factory.ResourceCreation
 {
     public class FabricatorController : IDisposable
     {
-        private readonly List<Fabricator> _fabricators;
+        private readonly ResourcePool _resourcePool;
         private readonly TransportBelt _transportBelt;
         private readonly FabricatorConfig _config;
         private readonly CancellationTokenSource _tokenSource = new();
 
-        public FabricatorController(List<Fabricator> fabricators, TransportBelt transportBelt,
+        public FabricatorController(ResourcePool resourcePool, TransportBelt transportBelt,
             FabricatorConfig fabricatorConfig)
         {
-            _fabricators = fabricators;
+            _resourcePool = resourcePool;
             _transportBelt = transportBelt;
             _config = fabricatorConfig;
         }
@@ -38,8 +38,10 @@ namespace Factory.ResourceCreation
         {
             while (token.IsCancellationRequested == false)
             {
-                var index = Random.Range(0, _fabricators.Count);
-                var resource = _fabricators[index].FabricateResource();
+                var resourceTypes = Enum.GetValues(typeof(ResourceType));
+                var index = Random.Range(0, resourceTypes.Length);
+                var resource = _resourcePool.Get((ResourceType) resourceTypes.GetValue(index));
+
                 _transportBelt.PlaceResourceAt(resource, index);
 
                 await UniTask.Delay(TimeSpan.FromSeconds(_config.FabricationInterval), cancellationToken: token);

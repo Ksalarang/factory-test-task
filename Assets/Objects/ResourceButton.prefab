@@ -129,10 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02337251e0f4d1bb05a8c080c8f6faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Type>k__BackingField: 0
   _button: {fileID: 1907303331608924426}
   _clickListener: {fileID: 3128058021585579587}
   _pressOffset: -0.02
-  _pressDuration: 0.5
+  _pressDuration: 0.3
 --- !u!1 &8881672839410245533
 GameObject:
   m_ObjectHideFlags: 0

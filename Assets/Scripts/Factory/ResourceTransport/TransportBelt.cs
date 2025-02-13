@@ -5,7 +5,6 @@ using DG.Tweening;
 using Factory.Configs;
 using Factory.ResourceCreation;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Factory.ResourceTransport
 {
@@ -14,13 +13,15 @@ namespace Factory.ResourceTransport
         public Resource CurrentResource { get; private set; }
 
         private readonly TransportBeltConfig _config;
+        private readonly ResourcePool _resourcePool;
         private readonly CancellationTokenSource _tokenSource = new();
 
         private CancellationTokenSource _currentResourceTokenSource;
 
-        public TransportBelt(TransportBeltConfig config)
+        public TransportBelt(TransportBeltConfig config, ResourcePool resourcePool)
         {
             _config = config;
+            _resourcePool = resourcePool;
         }
 
         public void Dispose()
@@ -91,7 +92,7 @@ namespace Factory.ResourceTransport
             await resource.transform.DOMove(position, 0.1f).SetEase(Ease.Linear).WithCancellation(token);
 
             resource.Movement.OnResourceCollision -= OnResourceCollision;
-            Object.Destroy(resource.gameObject);
+            _resourcePool.Release(resource);
         }
 
         private void OnResourceCollision(ResourceMovement resource1, ResourceMovement resource2)

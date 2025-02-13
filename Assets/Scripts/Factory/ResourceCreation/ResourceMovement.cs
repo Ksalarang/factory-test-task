@@ -43,5 +43,11 @@ namespace Factory.ResourceCreation
 
             transform.DOPlay();
         }
+
+        public void Reset()
+        {
+            OnResourceCollision = null;
+            _collidedResources.Clear();
+        }
     }
 }

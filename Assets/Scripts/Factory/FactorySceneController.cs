@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Factory.Carriers;
 using Factory.Configs;
 using Factory.ResourceControl;
 using Factory.ResourceCreation;
@@ -10,15 +11,20 @@ namespace Factory
 {
     public class FactorySceneController : MonoBehaviour
     {
-        [Header("Objects")]
-        [SerializeField]
-        private Fabricator[] _fabricators;
-
         [SerializeField]
         private ResourceButton[] _resourceButtons;
 
         [SerializeField]
         private PickUpArea[] _pickUpAreas;
+
+        [SerializeField]
+        private Resource[] _resourcePrefabs;
+
+        [SerializeField]
+        private Transform _resourceParent;
+
+        [SerializeField]
+        private Carrier _carrier;
 
         [Header("Configs")]
         [SerializeField]
@@ -27,6 +33,9 @@ namespace Factory
         [SerializeField]
         private FabricatorConfig _fabricatorConfig;
 
+        [SerializeField]
+        private ResourceConfigBundle _resourceConfigBundle;
+
         private TransportBelt _transportBelt;
         private FabricatorController _fabricatorController;
         private ResourcePanelController _resourcePanelController;
@@ -34,11 +43,14 @@ namespace Factory
 
         private void Start()
         {
-            _transportBelt = new TransportBelt(_transportBeltConfig);
-            _fabricatorController = new FabricatorController(_fabricators.ToList(), _transportBelt, _fabricatorConfig);
+            var resourcePool = new ResourcePool(_resourcePrefabs.ToList(), _resourceConfigBundle, _resourceParent);
+            _transportBelt = new TransportBelt(_transportBeltConfig, resourcePool);
+            _fabricatorController = new FabricatorController(resourcePool, _transportBelt, _fabricatorConfig);
             _pickUpHandler = new ResourcePickUpHandler(_pickUpAreas.ToList());
             _resourcePanelController = new ResourcePanelController(_resourceButtons.ToList(), _transportBelt,
                 _pickUpHandler);
+
+            _carrier.SetResourcePool(resourcePool);
 
             _fabricatorController.Start();
         }

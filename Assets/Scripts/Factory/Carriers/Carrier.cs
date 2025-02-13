@@ -40,9 +40,16 @@ namespace Factory.Carriers
         [SerializeField]
         private float _turnDuration;
 
+        private ResourcePool _resourcePool;
+
         private void Start()
         {
             StartAsync(gameObject.GetCancellationTokenOnDestroy()).Forget();
+        }
+
+        public void SetResourcePool(ResourcePool pool)
+        {
+            _resourcePool = pool;
         }
 
         private async UniTask StartAsync(CancellationToken token)
@@ -63,7 +70,7 @@ namespace Factory.Carriers
                 var container = _containers.First(container => container.Type == resource.Type);
                 await MoveToTargetAsync(container.transform.position, _containerOffset, Ease.OutSine, token);
 
-                Destroy(resource.gameObject);
+                _resourcePool.Release(resource);
 
                 await MoveToTargetAsync(_doorPosition, 0, Ease.InSine, token);
 
