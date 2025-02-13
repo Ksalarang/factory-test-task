@@ -1,8 +1,9 @@
 ﻿using System.Linq;
 using Factory.Configs;
-using Factory.Fabricators;
 using Factory.ResourceControl;
+using Factory.ResourceCreation;
 using Factory.ResourcePickUp;
+using Factory.ResourceTransport;
 using UnityEngine;
 
 namespace Factory

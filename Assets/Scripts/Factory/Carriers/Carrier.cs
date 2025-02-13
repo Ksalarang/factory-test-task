@@ -2,7 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Factory.Fabricators;
+using Factory.ResourceCreation;
 using Factory.ResourcePickUp;
 using UnityEngine;
 

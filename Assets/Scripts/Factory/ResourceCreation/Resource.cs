@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Factory.Fabricators
+namespace Factory.ResourceCreation
 {
     public class Resource : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-﻿namespace Factory.Fabricators
+﻿namespace Factory.ResourceCreation
 {
     public enum ResourceType
     {

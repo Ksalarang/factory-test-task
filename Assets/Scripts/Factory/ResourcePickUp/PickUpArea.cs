@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Factory.Fabricators;
+using Factory.ResourceCreation;
 using UnityEngine;
 
 namespace Factory.ResourcePickUp

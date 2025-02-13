@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Factory.Fabricators;
+using Factory.ResourceCreation;
 using UnityEngine;
 
 namespace Factory.ResourcePickUp

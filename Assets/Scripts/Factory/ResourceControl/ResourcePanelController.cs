@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Factory.Fabricators;
+using Factory.ResourceCreation;
 using Factory.ResourcePickUp;
+using Factory.ResourceTransport;
 
 namespace Factory.ResourceControl
 {

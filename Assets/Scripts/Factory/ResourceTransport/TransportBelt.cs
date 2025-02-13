@@ -3,10 +3,11 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Factory.Configs;
+using Factory.ResourceCreation;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Factory.Fabricators
+namespace Factory.ResourceTransport
 {
     public class TransportBelt : ITransportBelt, IDisposable
     {

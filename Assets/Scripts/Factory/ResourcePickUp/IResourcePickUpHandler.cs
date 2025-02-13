@@ -1,4 +1,4 @@
-﻿using Factory.Fabricators;
+﻿using Factory.ResourceCreation;
 
 namespace Factory.ResourcePickUp
 {

@@ -6,7 +6,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Factory.Fabricators
+namespace Factory.ResourceCreation
 {
     public class ResourceMovement : MonoBehaviour
     {

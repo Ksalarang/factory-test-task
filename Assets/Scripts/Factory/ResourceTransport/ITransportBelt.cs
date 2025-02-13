@@ -1,4 +1,6 @@
-﻿namespace Factory.Fabricators
+﻿using Factory.ResourceCreation;
+
+namespace Factory.ResourceTransport
 {
     public interface ITransportBelt
     {

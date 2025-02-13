@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Factory.Configs;
+using Factory.ResourceTransport;
 using Random = UnityEngine.Random;
 
-namespace Factory.Fabricators
+namespace Factory.ResourceCreation
 {
     public class FabricatorController : IDisposable
     {
