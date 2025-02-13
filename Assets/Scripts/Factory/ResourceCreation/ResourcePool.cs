@@ -25,15 +25,15 @@ namespace Factory.ResourceCreation
 
             _pools.Add(ResourceType.MetalRod,
                 new ObjectPool<Resource>(() => CreateResource(ResourceType.MetalRod),
-                    OnGet, OnRelease, OnDestroy, false));
+                    OnGet, OnRelease, OnDestroy));
 
             _pools.Add(ResourceType.StoneBrick,
                 new ObjectPool<Resource>(() => CreateResource(ResourceType.StoneBrick),
-                    OnGet, OnRelease, OnDestroy, false));
+                    OnGet, OnRelease, OnDestroy));
 
             _pools.Add(ResourceType.WoodenPlank,
                 new ObjectPool<Resource>(() => CreateResource(ResourceType.WoodenPlank),
-                    OnGet, OnRelease, OnDestroy, false));
+                    OnGet, OnRelease, OnDestroy));
         }
 
         public Resource Get(ResourceType type)

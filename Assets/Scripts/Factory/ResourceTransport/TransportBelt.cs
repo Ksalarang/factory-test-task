@@ -49,8 +49,9 @@ namespace Factory.ResourceTransport
         public void DiscardCurrentResource()
         {
             CancelCurrentResourceToken();
-
-            DiscardCurrentResourceAsync(CurrentResource, _tokenSource.Token).Forget();
+            var resource = CurrentResource;
+            CurrentResource = null;
+            DiscardCurrentResourceAsync(resource, _tokenSource.Token).Forget();
         }
 
         private async UniTask MoveResourceAsync(Resource resource, Vector3[] points, CancellationToken token)
