@@ -11,6 +11,7 @@ namespace Factory
 {
     public class FactorySceneController : MonoBehaviour
     {
+        [Header("Scene objects")]
         [SerializeField]
         private ResourceButton[] _resourceButtons;
 
@@ -18,14 +19,15 @@ namespace Factory
         private PickUpArea[] _pickUpAreas;
 
         [SerializeField]
-        private Resource[] _resourcePrefabs;
-
-        [SerializeField]
         private Transform _resourceParent;
 
         [SerializeField]
         private Carrier _carrier;
 
+        [Header("Prefabs")]
+        [SerializeField]
+        private Resource[] _resourcePrefabs;
+        
         [Header("Configs")]
         [SerializeField]
         private TransportBeltConfig _transportBeltConfig;

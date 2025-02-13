@@ -37,9 +37,9 @@ namespace Factory.ResourceCreation
         {
             while (token.IsCancellationRequested == false)
             {
-                var resourceTypes = Enum.GetValues(typeof(ResourceType));
-                var index = Random.Range(0, resourceTypes.Length);
-                var resource = _resourcePool.Get((ResourceType) resourceTypes.GetValue(index));
+                var resourceTypeArray = Enum.GetValues(typeof(ResourceType));
+                var index = Random.Range(0, resourceTypeArray.Length);
+                var resource = _resourcePool.Get((ResourceType) resourceTypeArray.GetValue(index));
 
                 _transportBelt.PlaceResourceAt(resource, index);
 
